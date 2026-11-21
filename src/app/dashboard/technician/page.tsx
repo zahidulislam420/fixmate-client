@@ -13,13 +13,16 @@ import {
   FolderKanban,
   ClipboardList,
   ArrowRight,
+  Sparkles,
 } from 'lucide-react';
+import ProPlanModal from './views/ProPlanModal';
 
 export default function TechnicianOverviewPage() {
   const { user } = useAuth();
   const [services, setServices] = useState<Service[]>([]);
   const [requests, setRequests] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
+  const [proModalOpen, setProModalOpen] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -61,13 +64,22 @@ export default function TechnicianOverviewPage() {
           </p>
         </div>
 
-        <Link
-          href="/dashboard/technician/add-service"
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md transition-all shrink-0"
-        >
-          <PlusCircle className="w-4 h-4" />
-          <span>Add New Service</span>
-        </Link>
+        <div className="flex items-center gap-3 shrink-0">
+          <button
+            onClick={() => setProModalOpen(true)}
+            className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-amber-500/20 text-amber-300 border border-amber-500/40 font-extrabold text-xs hover:bg-amber-500/30 transition-all"
+          >
+            <Sparkles className="w-4 h-4 text-amber-400" />
+            <span>Pro Plan</span>
+          </button>
+          <Link
+            href="/dashboard/technician/add-service"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md transition-all"
+          >
+            <PlusCircle className="w-4 h-4" />
+            <span>Add New Service</span>
+          </Link>
+        </div>
       </div>
 
       {/* Stats Cards */}
@@ -163,6 +175,11 @@ export default function TechnicianOverviewPage() {
           <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
+
+      <ProPlanModal
+        isOpen={proModalOpen}
+        onClose={() => setProModalOpen(false)}
+      />
     </div>
   );
 }

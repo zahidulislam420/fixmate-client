@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Service } from '@/types';
 import { apiFetch } from '@/lib/api';
-import { ArrowRight, MapPin, Tag, Wrench, Clock, Shield } from 'lucide-react';
+import { ArrowRight, MapPin, Tag, Wrench, Clock, Shield, Star } from 'lucide-react';
 
 export default function FeaturedServices() {
   const [services, setServices] = useState<Service[]>([]);
@@ -115,7 +115,11 @@ export default function FeaturedServices() {
                   </div>
 
                   {/* Service Mode Pill */}
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                    <span className="flex items-center gap-1 px-2 py-1 text-xs font-bold rounded-full bg-slate-900/80 text-amber-300 shadow-sm backdrop-blur-xs">
+                      <Star className="w-3 h-3 fill-amber-300" />
+                      <span>4.9</span>
+                    </span>
                     <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-600/90 text-white shadow-sm backdrop-blur-xs">
                       {item.serviceMode}
                     </span>

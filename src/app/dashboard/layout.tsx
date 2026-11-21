@@ -23,6 +23,7 @@ import {
   ChevronRight,
   ShieldAlert,
 } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function DashboardLayout({
   children,
@@ -232,6 +233,7 @@ export default function DashboardLayout({
           </div>
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/"
               className="text-xs font-semibold text-slate-500 hover:text-blue-600 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-colors hidden sm:inline-flex items-center gap-1.5"

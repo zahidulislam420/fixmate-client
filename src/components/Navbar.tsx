@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Wrench, Menu, X, User as UserIcon, LayoutDashboard, UserCheck, LogOut, ChevronDown } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -90,6 +91,7 @@ export default function Navbar() {
 
           {/* Right Header Actions */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             {user ? (
               <div className="relative" ref={dropdownRef}>
                 <button

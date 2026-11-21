@@ -108,7 +108,7 @@ FixMate is a full-stack, role-based repair service marketplace built with **Next
 ### Production Environment (`.env.local` / Vercel Environment Variables)
 ```env
 NEXT_PUBLIC_API_URL=https://fixmate-backend-msfi.onrender.com/api
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51UcxVeC5mVrXfgGYZZA6bojVmAENCmeRSdzb9pzrcPPtnFyCUqDbrf6bzTRbNoetide7coGWbxc68j7fVvXDWnNe00AjQyLZzF
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_stripe_publishable_key
 NEXT_PUBLIC_IMGBB_API_KEY=f5686d899286015406d5b18b757fcb50
 ```
 
